@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "phenix-web-sdk": "^2018.4.0",
+    "phenix-web-sdk": "^2018.4.4",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "react-native-webrtc": "^1.67.1"

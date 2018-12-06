@@ -19,7 +19,7 @@ global = Object.assign(global, {
   MediaStreamTrack,
   getUserMedia
 });
-import sdk from 'phenix-web-sdk/dist/phenix-web-sdk-react-native';
+import sdk from 'phenix-web-sdk/dist/phenix-web-sdk-react-native.min';
 
 sdk.RTC.shim();
 export default class App extends React.Component {
@@ -43,7 +43,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     const config = {
-      backendUri: 'https://phenixrts.com/demo'
+      backendUri: 'https://hq420.herokuapp.com/api/pcast'
     };
     const adminApiProxyClient = new sdk.net.AdminApiProxyClient();
     adminApiProxyClient.setBackendUri(config.backendUri);
@@ -66,7 +66,7 @@ export default class App extends React.Component {
     this.setState({ webrtcSupported: sdk.RTC.webrtcSupported });
     channelExpress.joinChannel(
       {
-        alias: 'chanel1',
+        alias: 'game3AX7HYQ',
         subscriberOptions: {bandwidthToStartAt: 700000}
       },
       (error, response) => {
@@ -74,7 +74,8 @@ export default class App extends React.Component {
           this.channelService = response.channelService;
         }
       },
-      (error, response, aaaa) => {
+      (error, response) => {
+        console.info('response', response)
         if (response && response.mediaStream) {
           console.log('VIDEO URL', response.mediaStream.getStream().toURL());
           this.setState({ videoURL: response.mediaStream.getStream().toURL() });
